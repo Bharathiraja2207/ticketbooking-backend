@@ -40,14 +40,14 @@ app.post("/ticket",async function (request, response) {
   const data=request.body;
   console.log(data);
    const result= await client
-      .db("ticket")
+      .db("b42mongo")
      .collection("bookticket")
       .insertMany(data)
   response.send(result);
 });
 
 
-  app.post('/update-items',async (req, res) => {
+  app.post('/all/update-items',async (req, res) => {
     // Get the item names to update from the request body
     const {itemNames,email} = req.body
     console.log(itemNames)
@@ -55,7 +55,7 @@ app.post("/ticket",async function (request, response) {
     try{
       
    const book= await client
-   .db("ticket")
+   .db("b42mongo")
    .collection("bookticket")
    .updateMany( { name: { $in: itemNames }}, {  $set: { status: 'done' } }) 
       if (!itemNames) {
@@ -107,9 +107,9 @@ app.post("/ticket",async function (request, response) {
     });
 
   
-    app.get("/allticket",async function (request, response) {
+    app.get("/all/allticket",async function (request, response) {
       const room_booking= await client
-      .db("ticket")
+      .db("b42mongo")
    .collection("bookticket")
       .find({})
       .toArray();
