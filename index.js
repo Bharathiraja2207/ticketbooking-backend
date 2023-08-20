@@ -83,7 +83,7 @@ app.post("/ticket",async function (request, response) {
         from: process.env.EMAIL,
         to: email,
         subject: 'ticket booked',
-        text: `seat number ${itemNames}...Movie:RRR`,
+        text: `seat number ${itemNames}...`,
         attachments: [
           {
             filename: 'qrcode.png',
@@ -145,7 +145,7 @@ app.post("/ticket",async function (request, response) {
         from: process.env.EMAIL,
         to: email,
         subject: 'ticket booked',
-        text: `seat number ${itemNames}...Movie:RRR,TIME:9:00am`,
+        text: `seat number ${itemNames}...TIME:9:00pm`,
         attachments: [
           {
             filename: 'qrcode.png',
